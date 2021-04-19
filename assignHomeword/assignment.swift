@@ -6,7 +6,7 @@
 //
 
 import Foundation
-class assignment
+class Assignment
 {
     var assignmentName: String
     var dueDate: String

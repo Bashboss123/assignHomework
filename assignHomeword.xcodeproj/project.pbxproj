@@ -16,7 +16,6 @@
 		DC44344826269E58001319F4 /* assignHomewordTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC44344726269E58001319F4 /* assignHomewordTests.swift */; };
 		DC44345326269E58001319F4 /* assignHomewordUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC44345226269E58001319F4 /* assignHomewordUITests.swift */; };
 		DC4434642626A153001319F4 /* assignment.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC4434632626A153001319F4 /* assignment.swift */; };
-		DC44346C2626A6BC001319F4 /* pickDateViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DC44346B2626A6BC001319F4 /* pickDateViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,7 +51,6 @@
 		DC44345226269E58001319F4 /* assignHomewordUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignHomewordUITests.swift; sourceTree = "<group>"; };
 		DC44345426269E58001319F4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DC4434632626A153001319F4 /* assignment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = assignment.swift; sourceTree = "<group>"; };
-		DC44346B2626A6BC001319F4 /* pickDateViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickDateViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,7 +104,6 @@
 				DC44343026269E3A001319F4 /* AppDelegate.swift */,
 				DC44343226269E3A001319F4 /* SceneDelegate.swift */,
 				DC44343426269E3A001319F4 /* ViewController.swift */,
-				DC44346B2626A6BC001319F4 /* pickDateViewController.swift */,
 				DC4434632626A153001319F4 /* assignment.swift */,
 				DC44343626269E3B001319F4 /* Main.storyboard */,
 				DC44343926269E57001319F4 /* Assets.xcassets */,
@@ -212,7 +209,7 @@
 					};
 				};
 			};
-			buildConfigurationList = DC44342826269E3A001319F4 /* Build configuration list for PBXProject "assignHomework" */;
+			buildConfigurationList = DC44342826269E3A001319F4 /* Build configuration list for PBXProject "assignHomeword" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -268,7 +265,6 @@
 				DC44343526269E3A001319F4 /* ViewController.swift in Sources */,
 				DC44343126269E3A001319F4 /* AppDelegate.swift in Sources */,
 				DC44343326269E3A001319F4 /* SceneDelegate.swift in Sources */,
-				DC44346C2626A6BC001319F4 /* pickDateViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -564,7 +560,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		DC44342826269E3A001319F4 /* Build configuration list for PBXProject "assignHomework" */ = {
+		DC44342826269E3A001319F4 /* Build configuration list for PBXProject "assignHomeword" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				DC44345526269E58001319F4 /* Debug */,
