@@ -51,8 +51,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="ptj-sN-PRQ" secondAttribute="bottom" id="37K-zP-suS"/>
                             <constraint firstItem="ptj-sN-PRQ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="5Av-xp-vkj"/>
+                            <constraint firstItem="ptj-sN-PRQ" firstAttribute="bottom" secondItem="6Tk-OE-BBY" secondAttribute="bottom" id="coU-Ov-hIp"/>
                             <constraint firstItem="ptj-sN-PRQ" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="f0G-fB-TtJ"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="ptj-sN-PRQ" secondAttribute="trailing" id="jVO-lC-k8X"/>
                         </constraints>
@@ -60,10 +60,13 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="spi-ie-NVg">
                         <nil key="title"/>
-                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="edit" id="dOC-ad-MjZ">
-                            <connections>
-                                <action selector="editButton:" destination="BYZ-38-t0r" id="ZVy-8a-gyo"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Icu-0q-Sun">
+                            <textField key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Due Date" minimumFontSize="17" id="046-nW-Stg">
+                                <rect key="frame" x="20" y="5" width="92" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
                         </barButtonItem>
                         <textField key="titleView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Assignment" textAlignment="natural" minimumFontSize="17" id="8ES-Bw-mRH">
                             <rect key="frame" x="139" y="5" width="136.5" height="34"/>
@@ -79,6 +82,7 @@
                     </navigationItem>
                     <simulatedToolbarMetrics key="simulatedBottomBarMetrics"/>
                     <connections>
+                        <outlet property="dueDateTextField" destination="046-nW-Stg" id="wHC-2S-6Qk"/>
                         <outlet property="tableView" destination="ptj-sN-PRQ" id="jMO-xy-Zgg"/>
                         <outlet property="textField" destination="8ES-Bw-mRH" id="ilZ-lQ-SvK"/>
                     </connections>

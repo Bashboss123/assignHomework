@@ -9,19 +9,28 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDataSource {
     
-    var datePickerPresented = false
+    @IBOutlet weak var dueDateTextField: UITextField!
+    
     @IBOutlet weak var textField: UITextField!
     @IBOutlet weak var tableView: UITableView!
     var assignments: [Assignment] = []
-    let datePicker = UIDatePicker()
+    var datePicker = UIDatePicker()
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
      
         tableView.dataSource = self
      
-        
-        tableView.reloadData()
-        
+      if let savedAssignments = UserDefaults.standard.data(forKey: "assignments") {
+            if let assignmentsDecoded = try? JSONDecoder().decode([Assignment].self, from: savedAssignments) as [Assignment] {
+                assignments = assignmentsDecoded
+            
+            } else {
+                print("Decoding failed")
+            }
+        }
+         
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,24 +48,18 @@ class ViewController: UIViewController, UITableViewDataSource {
   
     @IBAction func assignItemButton(_ sender: UIBarButtonItem) {
         ///CreateNewAssignment
-        print("Registered")
+       
         if let newAssignmentName = textField.text {
-            let newAssignment = Assignment(assignmentName: newAssignmentName, dueDate: "")
-            assignments.append(newAssignment)
-            tableView.reloadData()
             print(newAssignmentName)
             textField.text = newAssignmentName
             
+            
             ///Function called to present datePicker
-            createDatePicker()
-            
-            
-    
-         
-                    
+
+            tableView.reloadData()
+
 
     }
-        
         textField.resignFirstResponder()
    
     }
@@ -68,19 +71,32 @@ class ViewController: UIViewController, UITableViewDataSource {
         
     }
     
-    func createDatePicker(){
+    func createDatePicker(textField: UITextField){
+        datePicker = UIDatePicker(frame:CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 216))
+        datePicker.backgroundColor = UIColor.gray
+
         
         print("Function called")
+        
         let toolBar = UIToolbar()
         toolBar.sizeToFit()
+        UIDatePicker(frame:CGRect(x: 0, y: 0, width: self.view.frame.size.width, height: 216))
+        toolBar.barStyle = .default
+        toolBar.isTranslucent = true
+        textField.inputView = self.datePicker
         datePicker.datePickerMode = .dateAndTime
         let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressed))
+        let cancleButton = UIBarButtonItem(title: "Cancle", style: .plain, target: nil, action: #selector(canclePressed))
         toolBar.setItems([doneButton], animated: true)
         textField.inputAccessoryView = toolBar
         textField.inputView = datePicker
-        
+        toolBar.isUserInteractionEnabled = true
 
     }
+    @objc func canclePressed() {
+        textField.resignFirstResponder()
+    }
+    
        @objc func donePressed(){
         let date = Date()
         let dateFormatter = DateFormatter()
@@ -89,23 +105,28 @@ class ViewController: UIViewController, UITableViewDataSource {
         let chosenDate = dateFormatter.string(from: theDate)
         print(chosenDate)
         self.view.endEditing(true)
-            let assignmentName = textField.text!
-            let newAssignment =  Assignment(assignmentName: assignmentName, dueDate: chosenDate)
-              assignments.append(newAssignment)
+            
+   ///         let newAssignment =  Assignment(assignmentName: currentAssignment, dueDate: chosenDate)
+           ///   assignments.append(newAssignment)
+        if let encoded = try? JSONEncoder().encode(assignments) {
+            UserDefaults.standard.set(encoded, forKey: "assignments")
+        }
         textField.text = ""
+
         tableView.reloadData()
-             datePicker.resignFirstResponder()
+              textField.resignFirstResponder()
         
-        
-       
     }
 
     @IBAction func editButton(_ sender: UIBarButtonItem) {
         if let assignment = tableView.indexPathForSelectedRow {
             let textField = UITextField()
-           
-            
-        }
+          }
     }
     
+    func textFieldDidBeginEditing(textField:) {
+        createDatePicker(textField: dueDateTextField)
+    }
+
+
 }
